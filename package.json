@@ -1,0 +1,44 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"main": "index.js",
+	"engines": {
+		"node": "14.1.0",
+		"yarn": "1.22.4"
+	},
+	"jest": {
+		"setupFilesAfterEnv": [
+			"./tests/setup.js"
+		]
+	},
+	"scripts": {
+		"starts": "pm2 start -f index.js -i 0 --env development ",
+		"start": "node index.js",
+		"server": "nodemon index.js ",
+		"client": "yarn --cwd client run start ",
+		"dev": "concurrently \"yarn run server \" \"yarn run client \"",
+		"heroku-postbuild": "YARN_CONFIG_PRODUCTION=false yarn --cwd client install && yarn --cwd client run build  ",
+		"test": "jest --testTimeout=20000 --silent"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"aws-sdk": "^2.713.0",
+		"body-parser": "^1.19.0",
+		"cookie-session": "2.0.0-rc.1",
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"helmet": "^3.21.3",
+		"jest": "^26.1.0",
+		"lodash": "^4.17.15",
+		"mongoose": "^5.9.4",
+		"passport": "^0.4.1",
+		"passport-google-oauth20": "2",
+		"path-parser": "^6.1.0",
+		"pm2": "^4.4.0",
+		"puppeteer": "^5.0.0",
+		"redis": "^3.0.2"
+	},
+	"devDependencies": {
+		"concurrently": "^5.1.0"
+	}
+}
