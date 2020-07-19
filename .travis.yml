@@ -6,7 +6,7 @@ node_js:
 dist: trusty
 
 before_install:
- - yarn upgrade --latest
+ - npm install yarn@1.22.4
 services:
  - mongodb
  - redis
