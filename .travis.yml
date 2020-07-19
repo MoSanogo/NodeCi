@@ -6,8 +6,7 @@ node_js:
 dist: trusty
 
 before_install:
- - sudo apt update && sudo apt install yarn
-
+ - yarn upgrade --latest
 services:
  - mongodb
  - redis
