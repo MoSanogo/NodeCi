@@ -27,6 +27,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/blogRoutes')(app);
+require('./routes/uploadRoutes')(app);
 if (process.env.NODE_ENV === 'production' || 'ci') {
 	const path = require('path');
 	//Express will serve up production assets like our main.js file ,or main.css file;

@@ -3,7 +3,8 @@
 	"version": "1.0.0",
 	"main": "index.js",
 	"engines": {
-		"node": "14.1.0"
+		"node": "14.1.0",
+		"yarn":"1.22.4"
 	},
 	"jest": {
 		"setupFilesAfterEnv": [
@@ -22,7 +23,7 @@
 	},
 	"license": "MIT",
 	"dependencies": {
-		"aws-sdk": "^2.713.0",
+		"aws-sdk": "^2.715.0",
 		"body-parser": "^1.19.0",
 		"cookie-session": "2.0.0-rc.1",
 		"cors": "^2.8.5",
@@ -36,7 +37,8 @@
 		"path-parser": "^6.1.0",
 		"pm2": "^4.4.0",
 		"puppeteer": "^5.0.0",
-		"redis": "^3.0.2"
+		"redis": "^3.0.2",
+		"uuid": "^8.2.0"
 	},
 	"devDependencies": {
 		"concurrently": "^5.1.0"

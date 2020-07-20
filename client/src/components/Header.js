@@ -6,7 +6,6 @@ class Header extends Component {
 	renderContent() {
 		switch (this.props.auth) {
 			case null:
-				return;
 			case false:
 				return (
 					<li>
@@ -29,7 +28,6 @@ class Header extends Component {
 	}
 
 	render() {
-		console.log(this.props.auth);
 		return (
 			<nav className="indigo">
 				<div className="nav-wrapper">
