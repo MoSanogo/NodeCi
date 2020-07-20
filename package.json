@@ -4,7 +4,7 @@
 	"main": "index.js",
 	"engines": {
 		"node": "14.1.0",
-		"yarn":"1.22.4"
+		"yarn": "1.22.4"
 	},
 	"jest": {
 		"setupFilesAfterEnv": [
@@ -18,7 +18,7 @@
 		"client": "yarn --cwd client run start ",
 		"dev": "concurrently \"yarn run server \" \"yarn run client \"",
 		"build": "YARN_CONFIG_PRODUCTION=false yarn --cwd client install && yarn --cwd client run build  ",
-		"test": "jest --testTimeout=25000 --silent",
+		"test": "jest --testTimeout=30000 --silent",
 		"heroku-postbuild": "yarn run build"
 	},
 	"license": "MIT",

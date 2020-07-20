@@ -29,7 +29,7 @@ describe('When logged in', async () => {
 		});
 		it('Submitting then saving adds blog to index page ', async () => {
 			await page.click('button.green');
-			await page.waitFor('.card', { timeout: 3000 });
+			await page.waitFor('.card', { timeout: 8000 });
 			const title = await page.getContentsOf('.card-title');
 			const content = await page.getContentsOf('p');
 			expect(title).toEqual('My Title');
