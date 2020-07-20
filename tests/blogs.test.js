@@ -1,4 +1,5 @@
 const Page = require('./helpers/page');
+const path = require('path');
 let page;
 beforeEach(async () => {
 	page = await Page.build();
@@ -23,13 +24,15 @@ describe('When logged in', async () => {
 			await page.type('.content input', 'My Content');
 			await page.click('form button');
 		});
-		it('submitting takes user ti review screen', async () => {
+		it('submitting takes user to review screen', async () => {
 			const text = await page.getContentsOf('h5');
 			expect(text).toEqual('Please confirm your entries');
 		});
 		it('Submitting then saving adds blog to index page ', async () => {
+			const input = await page.$('form input');
+			await input.uploadFile(path.resolve(__dirname, 'cat.jpg'));
 			await page.click('button.green');
-			await page.waitFor('.card', { timeout: 8000 });
+			await page.waitFor('.card', { timeout: 3000 });
 			const title = await page.getContentsOf('.card-title');
 			const content = await page.getContentsOf('p');
 			expect(title).toEqual('My Title');

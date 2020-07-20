@@ -7,15 +7,20 @@ export const fetchUser = () => async (dispatch) => {
 	dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-
 export const submitBlog = (values, file, history) => async (dispatch) => {
-	const uploadConfig = await axios.get('/api/upload');
-	await axios.put(uploadConfig.data.url, file, {
-		headers: {
-			'Content-Type': file.type,
-		},
-	});
-	const res = await axios.post('/api/blogs', { ...values, imageUrl: uploadConfig.data.key });
+	let res;
+	if (file) {
+		const uploadConfig = await axios.get('/api/upload');
+		await axios.put(uploadConfig.data.url, file, {
+			headers: {
+				'Content-Type': file.type,
+			},
+		});
+		res = await axios.post('/api/blogs', { ...values, imageUrl: uploadConfig.data.key });
+	} else {
+		res = await axios.post('/api/blogs', values);
+	}
+
 	history.push('/blogs');
 	dispatch({ type: FETCH_BLOG, payload: res.data });
 };
